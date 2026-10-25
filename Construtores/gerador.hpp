@@ -6,6 +6,6 @@
 #include "../Atributos/armas.hpp"
 #include "../Atributos/armaduras.hpp"
 
-guerreiro geradora_de_guerreiros(string n, raca r, armadura a, arma w);
+Guerreiro geradora_de_guerreiros(string n, Raca r, Armadura a, Arma w);
 
 #endif

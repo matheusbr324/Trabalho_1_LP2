@@ -160,7 +160,7 @@ Armadura armadura_Couro (Couro c)
     armadura.setEsquiva(c.getEsquiva());
     armadura.setCritico(c.getCritico());
 
-    return Armadura;
+    return armadura;
 }
 
 Armadura armadura_Cota_de_malha (Cota_de_malha cm)
@@ -174,7 +174,7 @@ Armadura armadura_Cota_de_malha (Cota_de_malha cm)
     armadura.setEsquiva(cm.getEsquiva());
     armadura.setCritico(cm.getCritico());
 
-    return Armadura;
+    return armadura;
 }
 
 Armadura armadura_Placas (Placas p)
@@ -188,5 +188,5 @@ Armadura armadura_Placas (Placas p)
     armadura.setEsquiva(p.getEsquiva());
     armadura.setCritico(p.getCritico());
 
-    return Armadura;
+    return armadura;
 }

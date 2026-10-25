@@ -1,3 +1,6 @@
+#ifndef ARMAS_HPP
+#define ARMAS_HPP
+
 #include <iostream>
 
 using namespace std;
@@ -20,29 +23,29 @@ class Arma {
         float getCritico (void) {return critico_base;}
 
         void setVida (float v) {
-            vida = v; 
+            vida_base = v; 
         }
 
         void setAtaque (float a) {
-            ataque = a;
+            ataque_base = a;
         }
 
         void setDefesaRasa (float dr) {
-            defesa_rasa = dr;
+            defesa_base_rasa = dr;
         }
 
         void setDefesaPercentual (float dp) {
-            defesa_percentual = dp;
+            defesa_base_percentual = dp;
         }
 
         void setEsquiva (float e) {
-            esquiva = e;
+            esquiva_base = e;
         }
 
         void setCritico (float c) {
-            critico = c;
+            critico_base = c;
         } 
-}
+};
 
 class Espada_longa {
     private:
@@ -61,7 +64,7 @@ class Espada_longa {
         float getDefesaRasaBonus (void) {return defesa_rasa_bonus;}
         float getDefesaPercentualBonus (void) {return defesa_percentual_bonus;}
 
-}
+};
 
 class Espada_escudo {
     private:
@@ -80,7 +83,7 @@ class Espada_escudo {
         float getDefesaRasaBonus (void) {return defesa_rasa_bonus;}
         float getDefesaPercentualBonus (void) {return defesa_percentual_bonus;}
 
-}
+};
 
 class Machado_longo {
     private:
@@ -99,7 +102,7 @@ class Machado_longo {
         float getDefesaRasaBonus (void) {return defesa_rasa_bonus;}
         float getDefesaPercentualBonus (void) {return defesa_percentual_bonus;}
 
-}
+};
 
 class Machado_escudo {
     private:
@@ -118,7 +121,7 @@ class Machado_escudo {
         float getDefesaRasaBonus (void) {return defesa_rasa_bonus;}
         float getDefesaPercentualBonus (void) {return defesa_percentual_bonus;}
 
-}
+};
 
 class Lanca {
     private:
@@ -137,4 +140,6 @@ class Lanca {
         float getDefesaRasaBonus (void) {return defesa_rasa_bonus;}
         float getDefesaPercentualBonus (void) {return defesa_percentual_bonus;}
 
-}
+};
+
+#endif

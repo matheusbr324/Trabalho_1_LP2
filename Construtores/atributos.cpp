@@ -1,4 +1,6 @@
 #include "atributos.hpp"
+#include <cstdlib>
+#include <ctime>
 
 using namespace std;
 

@@ -1,3 +1,6 @@
+#ifndef RACAS_HPP
+#define RACAS_HPP
+
 #include <iostream>
 
 using namespace std;
@@ -20,29 +23,29 @@ class Raca {
         float getCritico (void) {return critico_base;}
 
         void setVida (float v) {
-            vida = v; 
+            vida_base = v; 
         }
 
         void setAtaque (float a) {
-            ataque = a;
+            ataque_base = a;
         }
 
         void setDefesaRasa (float dr) {
-            defesa_rasa = dr;
+            defesa_base_rasa = dr;
         }
 
         void setDefesaPercentual (float dp) {
-            defesa_percentual = dp;
+            defesa_base_percentual = dp;
         }
 
         void setEsquiva (float e) {
-            esquiva = e;
+            esquiva_base = e;
         }
 
         void setCritico (float c) {
-            critico = c;
+            critico_base = c;
         } 
-}
+};
 
 class Humano {
     private:
@@ -60,7 +63,7 @@ class Humano {
         float getDefesaPercentual (void) {return defesa_base_percentual;}
         float getEsquiva (void) {return esquiva_base;}
         float getCritico (void) {return critico_base;} 
-}
+};
 
 class Elfo {
     private:
@@ -78,7 +81,7 @@ class Elfo {
         float getDefesaPercentual (void) {return defesa_base_percentual;}
         float getEsquiva (void) {return esquiva_base;}
         float getCritico (void) {return critico_base;} 
-}
+};
 
 class Anao {
     private:
@@ -96,7 +99,7 @@ class Anao {
         float getDefesaPercentual (void) {return defesa_base_percentual;}
         float getEsquiva (void) {return esquiva_base;}
         float getCritico (void) {return critico_base;} 
-}
+};
 
 class Orc {
     private:
@@ -114,7 +117,7 @@ class Orc {
         float getDefesaPercentual (void) {return defesa_base_percentual;}
         float getEsquiva (void) {return esquiva_base;}
         float getCritico (void) {return critico_base;}   
-}
+};
 
 class Goblin {
     private:
@@ -132,4 +135,6 @@ class Goblin {
         float getDefesaPercentual (void) {return defesa_base_percentual;}
         float getEsquiva (void) {return esquiva_base;}
         float getCritico (void) {return critico_base;} 
-}
+};
+
+#endif

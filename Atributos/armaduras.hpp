@@ -1,3 +1,6 @@
+#ifndef ARMADURAS_HPP
+#define ARMADURAS_HPP
+
 #include <iostream>
 
 using namespace std;
@@ -20,29 +23,29 @@ class Armadura {
         float getCritico (void) {return critico_base;}
 
         void setVida (float v) {
-            vida = v; 
+            vida_base = v; 
         }
 
         void setAtaque (float a) {
-            ataque = a;
+            ataque_base = a;
         }
 
         void setDefesaRasa (float dr) {
-            defesa_rasa = dr;
+            defesa_base_rasa = dr;
         }
 
         void setDefesaPercentual (float dp) {
-            defesa_percentual = dp;
+            defesa_base_percentual = dp;
         }
 
         void setEsquiva (float e) {
-            esquiva = e;
+            esquiva_base = e;
         }
 
         void setCritico (float c) {
-            critico = c;
+            critico_base = c;
         } 
-}
+};
 
 class Couro {
     private:
@@ -61,7 +64,7 @@ class Couro {
         float getDefesaRasaBonus (void) {return defesa_rasa_bonus;}
         float getDefesaPercentualBonus (void) {return defesa_percentual_bonus;}
 
-}
+};
 
 class Cota_de_malha {
     private:
@@ -80,7 +83,7 @@ class Cota_de_malha {
         float getDefesaRasaBonus (void) {return defesa_rasa_bonus;}
         float getDefesaPercentualBonus (void) {return defesa_percentual_bonus;}
 
-}
+};
 
 class Placas {
     private:
@@ -99,4 +102,6 @@ class Placas {
         float getDefesaRasaBonus (void) {return defesa_rasa_bonus;}
         float getDefesaPercentualBonus (void) {return defesa_percentual_bonus;}
 
-}
+};
+
+#endif
