@@ -47,7 +47,7 @@ class Raca {
 class Humano {
     private:
         float vida_base = 50;
-        float ataque_base = 5;
+        float ataque_base = 10;
         float defesa_base_rasa = 3;
         float defesa_base_percentual = 0.1;
         float esquiva_base = 0.1;
@@ -65,7 +65,7 @@ class Humano {
 class Elfo {
     private:
         float vida_base = 40;
-        float ataque_base = 6;
+        float ataque_base = 12;
         float defesa_base_rasa = 2;
         float defesa_base_percentual = 0.05;
         float esquiva_base = 0.2;
@@ -83,7 +83,7 @@ class Elfo {
 class Anao {
     private:
         float vida_base = 50;
-        float ataque_base = 7;
+        float ataque_base = 13;
         float defesa_base_rasa = 5;
         float defesa_base_percentual = 0.2;
         float esquiva_base = 0.0;
@@ -100,9 +100,9 @@ class Anao {
 
 class Orc {
     private:
-        float vida_base = 70;
-        float ataque_base = 7;
-        float defesa_base_rasa = 5;
+        float vida_base = 60;
+        float ataque_base = 14;
+        float defesa_base_rasa = 4;
         float defesa_base_percentual = 0.1;
         float esquiva_base = 0.0;
         float critico_base = 0.1;
@@ -119,7 +119,7 @@ class Orc {
 class Goblin {
     private:
         float vida_base = 30;
-        float ataque_base = 5;
+        float ataque_base = 10;
         float defesa_base_rasa = 0;
         float defesa_base_percentual = 0.0;
         float esquiva_base = 0.3;

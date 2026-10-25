@@ -15,7 +15,7 @@ float ataque (float raca, float arma, float armadura) {
     float atributo;
 
     srand(time(NULL));
-    atributo = raca + arma + armadura + (rand() % 5);
+    atributo = raca + arma + armadura + 2 + (rand() % 7);
 
     return atributo;
 }
