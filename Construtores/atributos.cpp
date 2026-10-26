@@ -7,7 +7,6 @@ using namespace std;
 float vida (float raca, float arma, float armadura) {
     float atributo;
 
-    srand(time(NULL));
     atributo = raca + arma + armadura + (rand() % 20);
 
     return atributo;
@@ -16,7 +15,6 @@ float vida (float raca, float arma, float armadura) {
 float ataque (float raca, float arma, float armadura) {
     float atributo;
 
-    srand(time(NULL));
     atributo = raca + arma + armadura + 2 + (rand() % 7);
 
     return atributo;
