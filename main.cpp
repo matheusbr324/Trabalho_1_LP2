@@ -151,6 +151,56 @@ int main (void)
             }
         }
 
+        //loop de batalha
+        //flag1 e flag2 = 0
+
+        //i randon entre 0 e time1.size()
+        //j randon entre 0 e time2.size()
+
+        //(inicio de ataque 1 em 2) 
+        //n randon 0 a 100 (acerto)
+
+        //if(n > (time2[j].getEsquiva*100)) (verificação se acerta)
+            //verifica critico: 
+                //m randon 0 a 100 
+                //if(m < (time1[i].getCritico*100))
+                    //sim: dano em j-1, j, j+1 (dano em area) + flag1  !!verficar se j não é o primeiro ou o ultimo do vector!!
+                    //não: dano em j (dano individual)
+
+            // calculo do dano: 
+                //novaVida = time2[j].getVida() - ((time1[i].getAtaque() - time2[j].getDefesaRasa) * (1 - time2[j].getDefesaPercentual))
+                //time2[j].setVida(novaVida)
+        //(fim de ataque 1 em 2)
+        
+        //(inicio de ataque 2 em 1)
+        //n randon 0 a 100 (acerto)
+
+        //if(n > (time1[i].getEsquiva*100)) (verificação se acerta)
+            //verifica critico: 
+                //m randon 0 a 100 
+                //if(m < (time2[j].getCritico*100))
+                    //sim: dano em i-1, i, i+1 (dano em area) + flag2  !!verficar se i não é o primeiro ou o ultimo do vector!!
+                    //não: dano em i (dano individual)
+
+            // calculo do dano: 
+                //novaVida = time1[i].getVida() - ((time2[j].getAtaque() - time1[i].getDefesaRasa) * (1 - time1[i].getDefesaPercentual))
+                //time1[i].setVida(novaVida)
+        //(fim de ataque 2 em 1)
+
+        //verifica se morreu
+        //if(flag1)
+            //if(j < time2.size() && 1 > time2[j+1].getVida) errase time2[j+1]
+            //if(1 > time2[j].getVida) errase time2[j]
+            //if(j > 0 && 1 > time2[j-1].getVida) errase time2[j-1]
+        //else 
+            //if(1 > time2[j].getVida) errase time2[j]
+
+        //if(flag2)
+            //if(i < time1.size() && 1 > time1[i+1].getVida) errase time1[i+1]
+            //if(1 > time1[i].getVida) errase time1[i]
+            //if(i > 0 && 1 > time1[i-1].getVida) errase time1[i-1]
+        //else 
+            //if(1 > time1[i].getVida) errase time1[i]
 
 
         if(time1.size() < 1 && time2.size() < 1) {
