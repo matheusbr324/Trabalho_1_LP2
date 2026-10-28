@@ -43,7 +43,7 @@ int main (void)
                 cin >> opc_raca;
 
                 switch (opc_raca) {
-                    case 1:
+                    case 1: {
                         Anao a;
                         raca = raca_Anoes(a);
                         fp.open("./Nomes/Anoes.txt");
@@ -53,8 +53,9 @@ int main (void)
                             cout << "Erro ao abrir arquivo de nomes!" << endl;
                         }
                         break;
+                    }
 
-                    case 2:
+                    case 2: {
                         Elfo e;
                         raca = raca_Elfos(e);
                         fp.open("./Nomes/Elfos.txt");
@@ -64,8 +65,9 @@ int main (void)
                             cout << "Erro ao abrir arquivo de nomes!" << endl;
                         }
                         break;
+                    }
 
-                    case 3:
+                    case 3: {
                         Goblin g;
                         raca = raca_Goblins(g);
                         fp.open("./Nomes/Goblins.txt");
@@ -75,8 +77,9 @@ int main (void)
                             cout << "Erro ao abrir arquivo de nomes!" << endl;
                         }
                         break;
-                    
-                    case 4:
+                    }
+
+                    case 4: {
                         Humano h;
                         raca = raca_Humanos(h);
                         fp.open("./Nomes/Humanos.txt");
@@ -86,8 +89,9 @@ int main (void)
                             cout << "Erro ao abrir arquivo de nomes!" << endl;
                         }
                         break;
+                    }
 
-                    case 5:
+                    case 5: {
                         Orc o;
                         raca = raca_Orcs(o);
                         fp.open("./Nomes/Orcs.txt");
@@ -97,11 +101,14 @@ int main (void)
                             cout << "Erro ao abrir arquivo de nomes!" << endl;
                         }
                         break;
+                    }
 
-                    default:
+                    default: {
                         cout << "Opcao invalida!" << endl;
                         break;
+                    }
                 }
+            }
 
                 Guerreiro g;
                 int qtd_guerreiros;
@@ -174,9 +181,7 @@ int main (void)
                     cout << endl;
                     nome = "";
                 }
-                
-                fp.close();    
-            }
+            fp.close();    
         }
 
         //flag para verificar se houve ataque critico
@@ -192,7 +197,7 @@ int main (void)
         while (time1.size() > 0 && time2.size() > 0) {
             int i = rand() % time1.size();
             int j = rand() % time2.size();
-
+        
             flag1 = false;
             flag2 = false;
 
@@ -204,22 +209,22 @@ int main (void)
                 //verifica critico: 
                 m = rand() % 101;
                 if(m < (time1[i].getCritico()*100)) {
-                    
+                    cout << "Ataque critico do time 1 em: " << j << endl;
                     //dano em área
                     flag1 = true;
-                    if (j < time2.size()) {
+                    if (j < (time2.size() - 1)) {
                         novaVida = time2[j + 1].getVida() - ((time1[i].getAtaque() - time2[j + 1].getDefesaRasa()) * (1 - time2[j + 1].getDefesaPercentual()));
-                        time2[j + 1].setVida(novaVida);
+                        time2[j + 1].setVida(novaVida - 1);
                     }
 
                     if (j > 0) {
                         novaVida = time2[j - 1].getVida() - ((time1[i].getAtaque() - time2[j - 1].getDefesaRasa()) * (1 - time2[j - 1].getDefesaPercentual()));
-                        time2[j - 1].setVida(novaVida);
+                        time2[j - 1].setVida(novaVida - 1);
                     }
                 }
 
                 novaVida = time2[j].getVida() - ((time1[i].getAtaque() - time2[j].getDefesaRasa()) * (1 - time2[j].getDefesaPercentual()));
-                time2[j].setVida(novaVida);
+                time2[j].setVida(novaVida - 1);
             }
             //(fim de ataque 1 em 2)
             
@@ -232,27 +237,28 @@ int main (void)
                     m = rand() % 101;
                     if(m < (time2[j].getCritico()*100)) {
 
+                        cout << "Ataque critico do time 2 em: " << i << endl;
                         //dano em área
                         flag2 = true;
-                        if (j < time1.size()) {
+                        if (i < (time1.size() - 1)) {
                             novaVida = time1[i + 1].getVida() - ((time2[j].getAtaque() - time1[i + 1].getDefesaRasa()) * (1 - time1[i + 1].getDefesaPercentual()));
-                            time1[i + 1].setVida(novaVida);
+                            time1[i + 1].setVida(novaVida - 1);
                         }
 
-                        if (j > 0) {
+                        if (i > 0) {
                             novaVida = time1[i - 1].getVida() - ((time2[j].getAtaque() - time1[i - 1].getDefesaRasa()) * (1 - time1[i - 1].getDefesaPercentual()));
-                            time1[i - 1].setVida(novaVida);
+                            time1[i - 1].setVida(novaVida - 1);
                         }
                 }
 
                 novaVida = time1[i].getVida() - ((time2[j].getAtaque() - time1[i].getDefesaRasa()) * (1 - time1[i].getDefesaPercentual()));
-                time1[i].setVida(novaVida);
+                time1[i].setVida(novaVida - 1);
             }
             //(fim de ataque 2 em 1)
 
             //verifica se morreu
             if(flag1) {
-                if(j < time2.size() && 1 > time2[j+1].getVida()) time2.erase(time2.begin() + j + 1);
+                if(j < (time2.size() - 1) && 1 > time2[j+1].getVida()) time2.erase(time2.begin() + j + 1);
                 if(1 > time2[j].getVida()) time2.erase(time2.begin() + j);
                 if(j > 0 && 1 > time2[j-1].getVida()) time2.erase(time2.begin() + j - 1);
             } else {
@@ -260,28 +266,30 @@ int main (void)
             }
 
             if(flag2) {
-                if(i < time1.size() && 1 > time1[i+1].getVida()) time1.erase(time1.begin() + i + 1);
+                if(i < (time1.size() - 1) && 1 > time1[i+1].getVida()) time1.erase(time1.begin() + i + 1);
                 if(1 > time1[i].getVida()) time1.erase(time1.begin() + i);
                 if(i > 0 && 1 > time1[i-1].getVida()) time1.erase(time1.begin() + i - 1);
             } else {
                 if(1 > time1[i].getVida()) time1.erase(time1.begin() + i);
             }
+            cout << "guerreiros do time 1 restantes: " << time1.size() << endl;
+            cout << "guerreiros do time 2 restantes: " << time2.size() << endl;
+            cin.get();
         
         }
 
+        cout << "algum time morreu!" << endl;
+
         if(time1.size() < 1 && time2.size() < 1) {
             cout << "Empate!" << endl;
-            break;
         }
 
         if(time2.size() < 1) {
             cout << "Vitoria do time 1!" << endl;
-            break;
         }
         
         if(time1.size() < 1) { 
             cout << "Vitoria do time 2!" << endl;
-            break;
         }
 
         //clear nos times
@@ -295,7 +303,7 @@ int main (void)
         cin >> opc;
         cout << endl;
 
-    } while (!opc);
+    } while (opc);
 
     return 0;
 }
