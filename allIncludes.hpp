@@ -7,6 +7,7 @@
 #include <vector>
 #include <cstdlib>
 #include <ctime>
+#include <fstream>
 
 //includes especificos
 #include "./Atributos/armaduras.hpp"

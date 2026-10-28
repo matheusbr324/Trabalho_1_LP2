@@ -15,7 +15,7 @@ float vida (float raca, float arma, float armadura) {
 float ataque (float raca, float arma, float armadura) {
     float atributo;
 
-    atributo = raca + arma + armadura + 2 + (rand() % 7);
+    atributo = raca + arma + armadura + 4 + (rand() % 7);
 
     return atributo;
 }
@@ -23,7 +23,7 @@ float ataque (float raca, float arma, float armadura) {
 float defesa_rasa (float raca, float arma, float armadura) {
     float atributo;
 
-    atributo = raca + arma + armadura;
+    atributo = raca + arma + armadura + (rand() % 3);
 
     return atributo;
 }
