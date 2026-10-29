@@ -2,6 +2,8 @@
 #include "allIncludes.hpp"
 
 using namespace std;
+//Existem comentários de cout para interatividade no código.
+//Caso queira acompanhar mais de perto o que está acontecendo na luta ou na criação dos guerreiros, basta descomentar os couts.
 
 int main (void) 
 {
@@ -35,7 +37,7 @@ int main (void)
             while (!flag) {
                 int opc_raca = 0;
                 cout << "Escolha a raca do guerreiro do time " << (i + 1) << endl;
-                cout << "1 - Anão" << endl;
+                cout << "1 - Anao" << endl;
                 cout << "2 - Elfo" << endl;
                 cout << "3 - Goblin" << endl;
                 cout << "4 - Humano" << endl;
@@ -171,14 +173,13 @@ int main (void)
 
                     if (i == 0) {
                         time1.push_back(g);
-                        cout << "Guerreiro do time 1 criado com sucesso!";
-                        cout << " Nome: " << time1[j].getNome() << endl;
+                        //cout << "Guerreiro do time 1 criado com sucesso!";
+                        //cout << " Nome: " << time1[j].getNome() << endl;
                     } else {
                         time2.push_back(g);
-                        cout << "Guerreiro do time 2 criado com sucesso!";
-                        cout << " Nome: " << time2[j].getNome() << endl;
+                        //cout << "Guerreiro do time 2 criado com sucesso!";
+                        //cout << " Nome: " << time2[j].getNome() << endl;
                     }
-                    cout << endl;
                     nome = "";
                 }
             fp.close();    
@@ -206,25 +207,31 @@ int main (void)
 
             //verifica se acerta
             if(n > (time2[j].getEsquiva()*100)) {
+                //cout << "Guerreiro " << time1[i].getNome() << " do time 1 atacou o guerreiro " << time2[j].getNome() << " do time 2!" << endl;
+
                 //verifica critico: 
                 m = rand() % 101;
                 if(m < (time1[i].getCritico()*100)) {
-                    cout << "Ataque critico do time 1 em: " << j << endl;
+                    
                     //dano em área
                     flag1 = true;
+                    //cout << "Ataque critico do guerreiro " << time1[i].getNome() << " do time 1!" << endl;
                     if (j < (time2.size() - 1)) {
                         novaVida = time2[j + 1].getVida() - ((time1[i].getAtaque() - time2[j + 1].getDefesaRasa()) * (1 - time2[j + 1].getDefesaPercentual()));
+                        //cout << "Dano causado pelo guerreiro " << time1[i].getNome() << " do time 1: " << (time1[i].getAtaque() - time2[j + 1].getDefesaRasa()) * (1 - time2[j + 1].getDefesaPercentual()) << endl;
                         time2[j + 1].setVida(novaVida - 1);
                     }
 
                     if (j > 0) {
                         novaVida = time2[j - 1].getVida() - ((time1[i].getAtaque() - time2[j - 1].getDefesaRasa()) * (1 - time2[j - 1].getDefesaPercentual()));
+                        //cout << "Dano causado pelo guerreiro " << time1[i].getNome() << " do time 1: " << (time1[i].getAtaque() - time2[j - 1].getDefesaRasa()) * (1 - time2[j - 1].getDefesaPercentual()) << endl;
                         time2[j - 1].setVida(novaVida - 1);
                     }
                 }
 
                 novaVida = time2[j].getVida() - ((time1[i].getAtaque() - time2[j].getDefesaRasa()) * (1 - time2[j].getDefesaPercentual()));
                 time2[j].setVida(novaVida - 1);
+                //cout << "Dano causado pelo guerreiro " << time1[i].getNome() << " do time 1: " << (time1[i].getAtaque() - time2[j].getDefesaRasa()) * (1 - time2[j].getDefesaPercentual()) << endl;
             }
             //(fim de ataque 1 em 2)
             
@@ -233,28 +240,35 @@ int main (void)
 
             //verifica se acerta
             if(n > (time1[i].getEsquiva()*100)) {
+                //cout << "Guerreiro " << time2[j].getNome() << " do time 2 atacou o guerreiro " << time1[i].getNome() << " do time 1!" << endl;
+
                 //verifica critico: 
                     m = rand() % 101;
                     if(m < (time2[j].getCritico()*100)) {
 
-                        cout << "Ataque critico do time 2 em: " << i << endl;
                         //dano em área
                         flag2 = true;
+                        //cout << "Ataque critico do guerreiro " << time2[j].getNome() << " do time 2!" << endl;
                         if (i < (time1.size() - 1)) {
                             novaVida = time1[i + 1].getVida() - ((time2[j].getAtaque() - time1[i + 1].getDefesaRasa()) * (1 - time1[i + 1].getDefesaPercentual()));
+                            //cout << "Dano causado pelo guerreiro " << time2[j].getNome() << " do time 2: " << (time2[j].getAtaque() - time1[i + 1].getDefesaRasa()) * (1 - time1[i + 1].getDefesaPercentual()) << endl;
                             time1[i + 1].setVida(novaVida - 1);
                         }
 
                         if (i > 0) {
                             novaVida = time1[i - 1].getVida() - ((time2[j].getAtaque() - time1[i - 1].getDefesaRasa()) * (1 - time1[i - 1].getDefesaPercentual()));
+                            //cout << "Dano causado pelo guerreiro " << time2[j].getNome() << " do time 2: " << (time2[j].getAtaque() - time1[i - 1].getDefesaRasa()) * (1 - time1[i - 1].getDefesaPercentual()) << endl;
                             time1[i - 1].setVida(novaVida - 1);
                         }
                 }
 
                 novaVida = time1[i].getVida() - ((time2[j].getAtaque() - time1[i].getDefesaRasa()) * (1 - time1[i].getDefesaPercentual()));
+                //cout << "Dano causado pelo guerreiro " << time2[j].getNome() << " do time 2: " << (time2[j].getAtaque() - time1[i].getDefesaRasa()) * (1 - time1[i].getDefesaPercentual()) << endl;
                 time1[i].setVida(novaVida - 1);
             }
             //(fim de ataque 2 em 1)
+            //cout << "Vida do guerreiro " << time1[i].getNome() << " do time 1: " << time1[i].getVida() << endl;
+            //cout << "Vida do guerreiro " << time2[j].getNome() << " do time 2: " << time2[j].getVida() << endl;
 
             //verifica se morreu
             if(flag1) {
@@ -272,13 +286,10 @@ int main (void)
             } else {
                 if(1 > time1[i].getVida()) time1.erase(time1.begin() + i);
             }
-            cout << "guerreiros do time 1 restantes: " << time1.size() << endl;
-            cout << "guerreiros do time 2 restantes: " << time2.size() << endl;
-            cin.get();
-        
+            //cout << "guerreiros do time 1 restantes: " << time1.size() << endl;
+            //cout << "guerreiros do time 2 restantes: " << time2.size() << endl;
+            //cin.get();
         }
-
-        cout << "algum time morreu!" << endl;
 
         if(time1.size() < 1 && time2.size() < 1) {
             cout << "Empate!" << endl;
